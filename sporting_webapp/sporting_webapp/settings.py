@@ -73,6 +73,13 @@ PROJECT_HOME = os.path.join(os.path.dirname(__file__), '..')
 def template_dir(sub_dir):
     return os.path.join(PROJECT_HOME, sub_dir)
 
+# Disable API Django mlb_package
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
+}
 
 TEMPLATES = [
     {
