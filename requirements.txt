@@ -42,9 +42,6 @@ Markdown==3.0.1
 MarkupSafe==1.1.1
 mccabe==0.6.1
 mistune==0.8.4
-mkl-fft==1.0.10
-mkl-random==1.0.2
--e git+https://github.com/plopez9/ChiPy_Project.git@127ccd1ad15cbcb1d390571321e8189df2cb7d25#egg=my_django_app
 nbconvert==5.4.1
 nbformat==4.4.0
 numpy==1.16.2
