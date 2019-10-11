@@ -25,7 +25,7 @@ SECRET_KEY = 'w-x-47)$v)20ed941418=#ajxxv6umms5)y9cz_)(ze#gcuewv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["plopez9.herokuapp.com"]
 
 WEBPACK_LOADER = {
     'DEFAULT': {
