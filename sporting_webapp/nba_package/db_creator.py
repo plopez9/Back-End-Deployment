@@ -156,17 +156,17 @@ def get_contracts():
 
 #===============================================================================
 #Make Tables
-#summary_tabel = SummaryScrape(2019).make_data()
-#p_table = PlayerScrape(2019).get_players()
+summary_tabel = SummaryScrape(2020).make_data()
+p_table = PlayerScrape(2020).get_players()
 contract_data = get_contracts()
 
 
 ##Create Database
-engine = create_engine(r"sqlite:///C:\Users\Pedro\Desktop\Programs\chipy_sports_app\sporting_webapp\nba.db")
+engine = create_engine(r"sqlite:///C:\Users\Pedro\Desktop\Programs\Back-End-Deployment\sporting_webapp\nba.db")
 
 contract_data.to_sql("Contracts", con = engine, if_exists= "replace", chunksize = 10)
-# p_table.to_sql("Player Info", con = engine, if_exists="replace", chunksize = 10)
-#summary_tabel.to_sql("Summary Stats", con= engine, if_exists="replace", chunksize=10)
+p_table.to_sql("Player Info", con = engine, if_exists="replace", chunksize = 10)
+summary_tabel.to_sql("Summary Stats", con= engine, if_exists="replace", chunksize=10)
 
 #Test Code
 
