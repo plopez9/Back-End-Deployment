@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG")
 
-ALLOWED_HOSTS = ["plopez9.herokuapp.com"]
+ALLOWED_HOSTS = ["plopez9.herokuapp.com", "localhost"]
 
 WEBPACK_LOADER = {
     'DEFAULT': {
@@ -66,6 +66,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
        'localhost:3000',
+       "localhost:8000",
        "plopez23.herokuapp.com"
 )
 ROOT_URLCONF = 'sporting_webapp.urls'
