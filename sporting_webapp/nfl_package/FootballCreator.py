@@ -129,7 +129,7 @@ DefenseSummary = FootballData(2019).DefenseSummary(1,12)
 NFLStats = FootballData(2019).YearData(1,12)
 NFLSummary = FootballData(2019).PlayerSummary(1,12)
 
-engine = create_engine(r"sqlite:///C:\Users\Pedro\Desktop\Programs\Back-End-Deployment\sporting_webapp\nba.db")
+engine = create_engine(r"sqlite:///..\nba.db")
 
 Defense.to_sql("Defensive Stats", con = engine, if_exists= "replace", chunksize = 10)
 DefenseSummary.to_sql("Defensive Summary", con = engine, if_exists="replace", chunksize = 10)

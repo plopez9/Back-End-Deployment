@@ -155,20 +155,32 @@ def get_contracts():
 #<table class="suppress_all stats_table sliding_cols" id="team_and_opponent" data-cols-to-freeze="1"><caption>Team and Opponent Stats Table</caption>
 
 #===============================================================================
-#Make Tables
-summary_tabel = SummaryScrape(2020).make_data()
-p_table = PlayerScrape(2020).get_players()
-contract_data = get_contracts()
+
+import schedule
+import time
+
+def create_tables():
+
+    #Make Tables
+    summary_tabel = SummaryScrape(2020).make_data()
+    p_table = PlayerScrape(2020).get_players()
+    contract_data = get_contracts()
 
 
-##Create Database
-engine = create_engine(r"sqlite:///C:\Users\Pedro\Desktop\Programs\Back-End-Deployment\sporting_webapp\nba.db")
+    ##Create Database
+    engine = create_engine(r"sqlite:///..\nba.db")
 
-contract_data.to_sql("Contracts", con = engine, if_exists= "replace", chunksize = 10)
-p_table.to_sql("Player Info", con = engine, if_exists="replace", chunksize = 10)
-summary_tabel.to_sql("Summary Stats", con= engine, if_exists="replace", chunksize=10)
+    contract_data.to_sql("Contracts", con = engine, if_exists= "replace", chunksize = 10)
+    p_table.to_sql("Player Info", con = engine, if_exists="replace", chunksize = 10)
+    summary_tabel.to_sql("Summary Stats", con= engine, if_exists="replace", chunksize=10)
 
-#Test Code
+    #Test Code
+
+schedule.every().day.at("01:30").do(create_tables)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
 
 
 
