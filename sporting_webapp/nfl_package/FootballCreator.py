@@ -82,7 +82,7 @@ class FootballData:
 
         idx = pd.IndexSlice
         temp = defense.loc[idx["WR",:], idx["YH points"]].transform(lambda x: x/2)
-        defense.update(temp, join="left", overwrite=True, filter_func=None, errors='ignore')
+        defense.update(temp, join="left", overwrite=True, filter_func=None)
 
         return defense
 
@@ -124,10 +124,11 @@ class FootballData:
 # Database Creation
 #print(FootballData(2019).YearData(1,18))
 
-Defense = FootballData(2019).DefenseData(1,12)
-DefenseSummary = FootballData(2019).DefenseSummary(1,12)
-NFLStats = FootballData(2019).YearData(1,12)
-NFLSummary = FootballData(2019).PlayerSummary(1,12)
+Defense = FootballData(2020).DefenseData(1,4)
+DefenseSummary = FootballData(2020).DefenseSummary(1,4)
+NFLStats = FootballData(2020).YearData(1,4)
+NFLSummary = FootballData(2020).PlayerSummary(1,4)
+
 
 engine = create_engine(r"sqlite:///..\nba.db")
 

@@ -176,12 +176,12 @@ def create_tables():
 
     #Test Code
 
-schedule.every().day.at("01:30").do(create_tables)
+# schedule.every().day.at("01:30").do(create_tables)
+#
+# while True:
+#     schedule.run_pending()
+#     time.sleep(1)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
-
-
+create_tables()
 
 #===============================================================================
